@@ -29,7 +29,7 @@ class CompaniesController < ApplicationController
   def update
     @company = Company.find(params[:id])
     @company.update(company_params)
-    
+
     if @company.save
       flash[:success] = "#{@company.name} updated!"
       redirect_to company_path(@company)
@@ -42,7 +42,7 @@ class CompaniesController < ApplicationController
     @company = Company.find(params[:id])
     @company.destroy
 
-    flash[:success] = "#{company.name} was successfully deleted!"
+    flash[:success] = "#{@company.name} was successfully deleted!"
     redirect_to companies_path
   end
 
