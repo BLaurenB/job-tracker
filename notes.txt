@@ -1,0 +1,3 @@
+Q - edit path isn't working from Jobs' show page. The info is getting edited, but there is an error on redirecting.
+
+Q - 

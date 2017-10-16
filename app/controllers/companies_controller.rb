@@ -29,6 +29,7 @@ class CompaniesController < ApplicationController
   def update
     @company = Company.find(params[:id])
     @company.update(company_params)
+    
     if @company.save
       flash[:success] = "#{@company.name} updated!"
       redirect_to company_path(@company)
