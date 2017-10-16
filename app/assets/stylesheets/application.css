@@ -13,3 +13,86 @@
  *= require_tree .
  *= require_self
  */
+body {
+  font-family: 'Helvetica', sans-serif;
+  font-size: 1em;
+  margin: 50px;
+}
+
+body a {
+  text-decoration: none;
+  color: black;
+}
+
+h1{
+	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+	font-size: 3em;
+
+	font-style: normal;
+	font-variant: normal;
+	font-weight: bold;
+}
+
+h2{
+	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+	font-size: 2em;
+	font-style: normal;
+	font-variant: normal;
+	font-weight: normal;
+}
+
+h3{
+	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+	font-size: 1.25em;
+	font-style: normal;
+	font-variant: normal;
+	font-weight: bold;
+}
+
+p{
+	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+	font-size: 1em;
+	font-style: normal;
+	font-variant: normal;
+	font-weight: normal;
+}
+
+.link_color {
+  color: #004b00;
+}
+
+header {
+  display: flex;
+  justify-content: baseline;
+  height: 100px;
+  padding-left: 20px;
+}
+
+nav {
+  display: flex;
+  justify-content: space-evenly;
+  background-color: #28af3f;
+  width: 100%;
+  padding: .5em;
+}
+
+nav a:hover {
+  color: white;
+  background-color: #28af3f;
+}
+
+.box {
+  background-color: #DBE9F4;
+}
+
+footer {
+  background-color: #28af3f;
+  width: 92%;
+  position: fixed;
+  bottom: 0;
+}
+
+footer p {
+  color:  white;
+  font-size: .75em;
+}
