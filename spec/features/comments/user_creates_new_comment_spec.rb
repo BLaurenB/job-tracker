@@ -2,6 +2,7 @@ require 'rails_helper'
 
 describe "User creates a new comment," do
   scenario "a user can create a new comment" do
+    category = create(:category)
     company = create(:company)
     job = create(:job)
 

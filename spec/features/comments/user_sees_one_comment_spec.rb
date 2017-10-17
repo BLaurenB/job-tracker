@@ -2,6 +2,7 @@ require 'rails_helper'
 
 describe "User sees one comment," do
   scenario "a user sees a comment" do
+    category = create(:category)
     company = create(:company)
     job = create(:job)
     comment = Comment.create(content: "Notes Here!", job_id: Job.last.id)

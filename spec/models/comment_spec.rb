@@ -4,6 +4,7 @@ describe Comment do
   describe "validations" do
     context "invalid attributes," do
       it "is invalid without content" do
+        category = create(:category)
         company = create(:company)
         job = create(:job)
         comment = Comment.create()
@@ -14,6 +15,7 @@ describe Comment do
 
     context "valid attributes," do
       it "is valid with content" do
+        category = create(:category)
         company = create(:company)
         job = create(:job)
         comment = create(:comment)
@@ -24,6 +26,7 @@ describe Comment do
 
   describe "relationships" do
     it "belongs to a job" do
+      category = create(:category)
       company = create(:company)
       job = create(:job)
       comment = create(:comment)
