@@ -5,6 +5,7 @@ FactoryGirl.define do
     sequence(:level_of_interest) {|n| "Interest #{n}"}
     sequence(:city) {|n| "Job City #{n}"}
     company
+    category
   end
 
 end
