@@ -1,4 +1,5 @@
-Q - edit path isn't working from Jobs' show page. The info is getting edited, but there is an error on redirecting.
+
+Q - how to relate categories and jobs? I need help making the column changes. Figure out what I need first. A job has one category. Categories can have many jobs. I need to add the FK to jobs.
 
 
 
@@ -22,5 +23,8 @@ $ bin/rails generate model Tagging tag:references article:references
 $ bin/rake db:migrate
 
 rails g model Comment content:text job:references
-rails g model Category title:string job:references
+rails g model Category title:string
 rails g model Contact first_name last_name email position company:references
+
+rails g migration AddJobToCategory job:references
+bin/rails g migration RemoveCategoryFromJob category
