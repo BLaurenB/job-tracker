@@ -2,7 +2,7 @@
 body {
   font-family: 'Helvetica', sans-serif;
   font-size: 1em;
-  margin: 50px;
+  margin: 0px;
 }
 
 body a {
@@ -13,6 +13,7 @@ body a {
 h1{
 	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
 	font-size: 3em;
+<<<<<<< HEAD
   background-color: black;
   color: white;
   font-style: normal;
@@ -22,6 +23,11 @@ h1{
   -webkit-margin-after: 0em;
   -webkit-margin-start: 0px;
   -webkit-margin-end: 0px;
+=======
+  color: white;
+	font-weight: bold;
+  padding: 1em
+>>>>>>> css
 }
 
 h2{
@@ -52,6 +58,15 @@ p{
   color: #004b00;
 }
 
+.title {
+  background-color: black;
+  width: 100%;
+}
+
+.yield_body {
+  margin: 50px;
+}
+
 header {
   display: flex;
   justify-content: baseline;
@@ -64,6 +79,10 @@ nav {
   justify-content: space-evenly;
   background-color: #28af3f;
   width: 100%;
+<<<<<<< HEAD
+=======
+  padding: 0em;
+>>>>>>> css
 }
 
 nav a:hover {
@@ -77,7 +96,7 @@ nav a:hover {
 
 footer {
   background-color: #28af3f;
-  width: 92%;
+  width: 100%;
   position: fixed;
   bottom: 0;
 }
