@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
 root to: 'jobs#index'
-# DON'T FORGET TO SET ONLY AND EXCEPT FOR CERTAIN NEXTED ONES
+# DON'T FORGET TO SET ONLY AND EXCEPT FOR CERTAIN NESTED ONES
 
   resources :companies do
     resources :jobs
