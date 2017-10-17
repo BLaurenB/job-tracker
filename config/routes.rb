@@ -8,8 +8,7 @@ root to: 'jobs#index'
   end
 
   resources :jobs do
-    resources :comments
-    resources :categories
+    resources :comments, only: [:create]
   end
 
   resources :categories

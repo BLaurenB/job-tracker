@@ -23,6 +23,9 @@ class JobsController < ApplicationController
   def show
     @company = Company.find(params[:company_id])
     @job = Job.find(params[:id])
+
+    @comment = Comment.new
+    @comment.job_id = @job.id
   end
 
   def edit
@@ -30,18 +33,25 @@ class JobsController < ApplicationController
     @job = @company.jobs.find(params[:id])
   end
 
+  # def update
+  #   @company = Company.find(params[:company_id])
+  #   @job = @company.jobs.find(params[:id])
+  #
+  #   @job.update(job_params)
+  #
+  #   if @job.save
+  #     flash.notice = "Job '#{@job.title}' was updated!"
+  #     redirect_to company_job_path(@company, @job)
+  #   else
+  #     render :edit
+  #   end
+  # end
+
   def update
     @company = Company.find(params[:company_id])
     @job = @company.jobs.find(params[:id])
-
-    @job.update(job_params)
-
-    if @job.save
-      flash.notice = "Job '#{@job.title}' was updated!"
-      redirect_to company_job_path(@company, @job)
-    else
-      render :edit
-    end
+    flash.notice = "job '#{@job.title}' was updated!"
+    redirect_to article_path(@job)
   end
 
   def destroy
