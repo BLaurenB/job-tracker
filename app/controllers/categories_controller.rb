@@ -11,7 +11,7 @@ class CategoriesController < ApplicationController
     @category = Category.new(category_params)
     if @category.save
       flash[:success] = "#{@category.description} added!"
-      redirect_to categories_path
+      redirect_to category_path(@category)
     else
       render :new
     end
@@ -43,7 +43,7 @@ class CategoriesController < ApplicationController
     @category.destroy
 
     flash[:success] = "#{@category.description} was successfully deleted!"
-    redirect_to companies_path
+    redirect_to categories_path
   end
 
 
