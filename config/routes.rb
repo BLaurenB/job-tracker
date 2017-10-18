@@ -12,6 +12,7 @@ root to: 'jobs#index'
   end
 
   resources :categories
+  resources :dashboards
 
 
 end
