@@ -1,62 +1,59 @@
-class JobsController < ApplicationController
-  def index
-    @company = Company.find(params[:company_id])
-    @jobs = @company.jobs
-  end
+class ContactsController < ApplicationController
+  # def index
+  #   @company = Company.find(params[:company_id])
+  #   @contacts = @company.contacts
+  # end
 
   def new
     @company = Company.find(params[:company_id])
-    @job = Job.new()
+    @contact = Contact.new()
   end
 
   def create
     @company = Company.find(params[:company_id])
-    @job = @company.jobs.new(job_params)
-    if @job.save
-      flash[:success] = "You created #{@job.title} at #{@company.name}"
-      redirect_to company_job_path(@company, @job)
-    else
-      render :new
-    end
+    @contact = Contact.new(contact_params)
+    @contact.company_id = @company.id
+    @contact.save
+    redirect_to company_path(@company)
   end
 
-  def show
-    @company = Company.find(params[:company_id])
-    @job = Job.find(params[:id])
-  end
-
-  def edit
-    @company = Company.find(params[:company_id])
-    @job = @company.jobs.find(params[:id])
-  end
-
-  def update
-    @company = Company.find(params[:company_id])
-    @job = @company.jobs.find(params[:id])
-
-    @job.update(job_params)
-
-    if @job.save
-      flash.notice = "Job '#{@job.title}' was updated!"
-      redirect_to company_job_path(@company, @job)
-    else
-      render :edit
-    end
-  end
-
-  def destroy
-    @company = Company.find(params[:company_id])
-    @job = @company.jobs.find(params[:id])
-
-    @job.destroy
-
-    flash[:success] = "#{@job.title} was successfully deleted!"
-    redirect_to company_jobs_path
-  end
+  # def show
+  #   @company = Company.find(params[:company_id])
+  #   @contact = Contact.where(company_id: params[:id])
+  # end
+  # 
+  # def edit
+  #   @company = Company.find(params[:company_id])
+  #   @contact = @company.contacts.find(params[:id])
+  # end
+  #
+  # def update
+  #   @company = Company.find(params[:company_id])
+  #   @contact = @company.contacts.find(params[:id])
+  #
+  #   @contact.update(contact_params)
+  #
+  #   if @contact.save
+  #     flash.notice = "Contact '#{@contact.title}' was updated!"
+  #     redirect_to company_contact_path(@company, @contact)
+  #   else
+  #     render :edit
+  #   end
+  # end
+  #
+  # def destroy
+  #   @company = Company.find(params[:company_id])
+  #   @contact = @company.contacts.find(params[:id])
+  #
+  #   @contact.destroy
+  #
+  #   flash[:success] = "#{@contact.title} was successfully deleted!"
+  #   redirect_to company_contacts_path
+  # end
 
   private
 
-  def job_params
-    params.require(:job).permit(:title, :description, :level_of_interest, :city)
+  def contact_params
+    params.require(:contact).permit(:first_name, :last_name, :email, :position)
   end
 end

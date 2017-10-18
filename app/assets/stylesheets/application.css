@@ -13,7 +13,6 @@ body a {
 h1{
 	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
 	font-size: 3em;
-<<<<<<< HEAD
   background-color: black;
   color: white;
   font-style: normal;
@@ -23,11 +22,10 @@ h1{
   -webkit-margin-after: 0em;
   -webkit-margin-start: 0px;
   -webkit-margin-end: 0px;
-=======
   color: white;
 	font-weight: bold;
   padding: 1em
->>>>>>> css
+
 }
 
 h2{
@@ -79,10 +77,7 @@ nav {
   justify-content: space-evenly;
   background-color: #28af3f;
   width: 100%;
-<<<<<<< HEAD
-=======
   padding: 0em;
->>>>>>> css
 }
 
 nav a:hover {

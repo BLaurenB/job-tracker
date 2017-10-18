@@ -1,6 +1,7 @@
 class CompaniesController < ApplicationController
   def index
     @companies = Company.all
+    @contact = Contact.where(company_id: params[:id])
   end
 
   def new
@@ -19,7 +20,7 @@ class CompaniesController < ApplicationController
 
   def show
     @company = Company.find(params[:id])
-    redirect_to company_jobs_path(@company)
+    @contact = Contact.where(company_id: params[:id])
   end
 
   def edit
@@ -50,6 +51,6 @@ class CompaniesController < ApplicationController
   private
 
   def company_params
-    params.require(:company).permit(:name, :city)
+    params.require(:company).permit(:first_name, :last_name, :email, :position)
   end
 end

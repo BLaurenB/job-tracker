@@ -10,9 +10,9 @@
 <body>
   <h1 class="title">Job Tracker</h1>
   <nav>
-    <h2><%= link_to "Companies  |", companies_path %>
-    <%= link_to "Categories  ", categories_path %>
-    <%= link_to "|  Jobs" %></h2>
+    <h2><%= link_to "Jobs", jobs_path%>
+    <%= link_to "  |  Companies  |", companies_path %>
+    <%= link_to "Categories", categories_path%></h2>
   </nav>
 
   <% flash.each do |name, msg| %>

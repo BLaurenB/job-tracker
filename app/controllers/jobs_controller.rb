@@ -1,11 +1,14 @@
 class JobsController < ApplicationController
   def index
     if params[:company_id]
-        # require "pry"; binding.pry
       @company = Company.find(params[:company_id])
       @jobs = @company.jobs
+    elsif params[:location]
+      @jobs.where(city: params[:location])
+    elsif params[:interest]
+      @jobs.where(level_of_interest: params[:interest])
     else
-      @company = Company.find(params[:company_id])
+      @company = Company.all
       @jobs = Job.all
     end
   end
@@ -27,15 +30,11 @@ class JobsController < ApplicationController
     end
   end
 
-def show
-
-    # @company = Company.find(params[:company_id])
+  def show
+    @company = Company.create
     @job = Job.find(params[:id])
-
     @comment = Comment.create
     @comment.job_id = @job.id
-
-    # redirect_to company_job_path(@company, @job)
   end
 
   def edit
