@@ -1,6 +1,10 @@
 
-Q - how to relate categories and jobs? I need help making the column changes. Figure out what I need first. A job has one category. Categories can have many jobs. I need to add the FK to jobs.
 
-Q - adding comment goes to the right job, but the redirect goes to the wrong page - it goes to the first company's job/show page....or just errors out in the Job Controller.
+count of jobs by level of interest
 
-Q - lots of trouble with tests! AAAAAND, no feature tests yet!
+
+top 3 companies ranked by level of interest
+  AND each company's averaged level of interest
+
+count of jobs by location
+   links to visit jobs in that location. the link should be structured: /jobs?location=Denver for Denver, etc. Hard code th url?

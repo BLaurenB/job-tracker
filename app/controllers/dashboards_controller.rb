@@ -5,7 +5,7 @@ class DashboardsController < ApplicationController
 
   def index
     @company = Company.all
-    @job = Job.all
+    @jobs = Job.where(company_id: @company.id)
   end
 
 end
