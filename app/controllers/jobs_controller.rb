@@ -3,10 +3,17 @@ class JobsController < ApplicationController
     if params[:company_id]
       @company = Company.find(params[:company_id])
       @jobs = @company.jobs
+    elsif params[:sort]  #sort=location and sort=interest
+      if params[:sort] == "location"
+        @company = Company.all
+        @jobs = Job.order(:city)
+      else
+        @company = Company.all
+        @jobs = Job.order("level_of_interest DESC")
+      end
     elsif params[:location]
-      @jobs.where(city: params[:location])
-    elsif params[:interest]
-      @jobs.where(level_of_interest: params[:interest])
+      @company = Company.all
+      @jobs = Job.where(city: params[:location])
     else
       @company = Company.all
       @jobs = Job.all
@@ -20,9 +27,10 @@ class JobsController < ApplicationController
   end
 
   def create
+    @category = Category.all
     @company = Company.find(params[:company_id])
     @job = @company.jobs.new(job_params)
-    if @job.save
+    if @job.save!
       flash[:success] = "You created #{@job.title} at #{@company.name}"
       redirect_to company_job_path(@company, @job)
     else
@@ -38,6 +46,7 @@ class JobsController < ApplicationController
   end
 
   def edit
+    @category = Category.all
     @company = Company.find(params[:company_id])
     @job = @company.jobs.find(params[:id])
   end
@@ -63,6 +72,6 @@ class JobsController < ApplicationController
   private
 
   def job_params
-    params.require(:job).permit(:title, :description, :level_of_interest, :city)
+    params.require(:job).permit(:title, :description, :level_of_interest, :city, :category_id)
   end
 end

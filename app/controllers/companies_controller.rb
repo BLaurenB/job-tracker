@@ -10,7 +10,7 @@ class CompaniesController < ApplicationController
 
   def create
     @company = Company.new(company_params)
-    if @company.save
+    if @company.save!
       flash[:success] = "#{@company.name} added!"
       redirect_to company_path(@company)
     else
@@ -51,6 +51,6 @@ class CompaniesController < ApplicationController
   private
 
   def company_params
-    params.require(:company).permit(:first_name, :last_name, :email, :position)
+    params.require(:company).permit(:name)
   end
 end

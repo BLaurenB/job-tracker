@@ -5,4 +5,11 @@ class Contact < ApplicationRecord
   validates :position, presence: true
 
   belongs_to :company
+
+
+
+  def normalize_case(user_input)
+    user_input.downcase.capitalize
+  end
+
 end
