@@ -1,19 +1,15 @@
-<!-- / -->
-<h2>All Jobs for <%= @company.name %></h2><br/>
 
-<h3 class="link_color" ><%= link_to "< Add a New Job >", new_company_job_path(@company, @jobs)%></h3>
+<h2>All Jobs for <%= company.name %></h2><br/>
+
+<h3 c class="link_color"><%= link_to "< Add a New Job >", new_company_job_path(company, @jobs)%></h3>
 
 <section>
   <% @jobs.each do |job| %>
-<<<<<<< HEAD
-    <h3><%= link_to job.title, company_job_path(@company,job) %> at <%= job.company.name %></h3><br/>
-    <%= link_to "Edit", edit_company_job_path(@company,job) %> or
-    <%= link_to "Delete", company_job_path(@company,job), method: "delete" %><br/>
-=======
-    <h3><%= job.title %> at <%= job.company.name %></h3>
-    <%= link_to "Edit", edit_company_job_path(@company,job) %> or
-    <%= link_to "Delete", company_job_path(@company,job), method: "delete" %>
-    <br/>
->>>>>>> css
+
+    <h3 class="link_color"><%= link_to job.title, company_job_path(company,job) %> at <%= job.company.name %></h3><br/>
+    <%= link_to "Edit", edit_company_job_path(company,job) %> or
+    <%= link_to "Delete", company_job_path(company,job), method: "delete" %><br/>
+
   <% end %>
 </section>
+<% end %>

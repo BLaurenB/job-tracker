@@ -1,62 +1,55 @@
-# class JobsController < ApplicationController
-#   def index
-#     @company = Company.find(params[:company_id])
-#     @jobs = @company.jobs
-#   end
-#
-#   def new
-#     @company = Company.find(params[:company_id])
-#     @job = Job.new()
-#   end
-#
-#   def create
-#     @company = Company.find(params[:company_id])
-#     @job = @company.jobs.new(job_params)
-#     if @job.save
-#       flash[:success] = "You created #{@job.title} at #{@company.name}"
-#       redirect_to company_job_path(@company, @job)
-#     else
-#       render :new
-#     end
-#   end
-#
-#   def show
-#     @company = Company.find(params[:company_id])
-#     @job = Job.find(params[:id])
-#   end
-#
-#   def edit
-#     @company = Company.find(params[:company_id])
-#     @job = @company.jobs.find(params[:id])
-#   end
-#
-#   def update
-#     @company = Company.find(params[:company_id])
-#     @job = @company.jobs.find(params[:id])
-#
-#     @job.update(job_params)
-#
-#     if @job.save
-#       flash.notice = "Job '#{@job.title}' was updated!"
-#       redirect_to company_job_path(@company, @job)
-#     else
-#       render :edit
-#     end
-#   end
-#
-#   def destroy
-#     @company = Company.find(params[:company_id])
-#     @job = @company.jobs.find(params[:id])
-#
-#     @job.destroy
-#
-#     flash[:success] = "#{@job.title} was successfully deleted!"
-#     redirect_to company_jobs_path
-#   end
-#
-#   private
-#
-#   def job_params
-#     params.require(:job).permit(:title, :description, :level_of_interest, :city)
-#   end
-# end
+class CategoriesController < ApplicationController
+  def index
+    @categories = Category.all
+  end
+
+  def new
+    @category = Category.new
+  end
+
+  def create
+    @category = Category.new(category_params)
+    if @category.save
+      flash[:success] = "#{@category.description} added!"
+      redirect_to categories_path
+    else
+      render :new
+    end
+  end
+
+  def show
+    @category = Category.find(params[:id])
+    @jobs = Job.where(category_id: params[:id])
+  end
+
+  def edit
+    @category = Category.find(params[:id])
+  end
+
+  def update
+    @category = Category.find(params[:id])
+    @category.update(category_params)
+
+    if @category.save
+      flash[:success] = "#{@category.description} updated!"
+      redirect_to category_path(@category)
+    else
+      render :edit
+    end
+  end
+
+  def destroy
+    @category = Category.find(params[:id])
+    @category.destroy
+
+    flash[:success] = "#{@category.description} was successfully deleted!"
+    redirect_to companies_path
+  end
+
+
+  private
+
+  def category_params
+    params.require(:category).permit(:description)
+  end
+end

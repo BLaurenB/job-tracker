@@ -4,10 +4,9 @@
 <section>
 <ul>
   <% @companies.each do |company| %>
-  <h3 class=company_<%= company.id %>>
-    <%= link_to company.name, company_path(company) %></h3>
-    <%= link_to "Edit ", edit_company_path(company) %> or
-    <%= link_to " Delete", company_path(company), method: "delete" %>
+  <h3><%= link_to company.name, company_path(company) %></h3>
+  <%= link_to "Edit ", edit_company_path(company) %> or
+  <%= link_to " Delete", company_path(company), method: "delete" %>
 
   <% end %>
 </ul>
