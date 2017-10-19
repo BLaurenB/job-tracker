@@ -1,22 +1,20 @@
 <h2> Dashboard </h2>
 
+<h3>Top 3 Jobs by Interest level</h3>
+
+<% @jobs.top_3_by_interest.each do |job|%>
+<ul>
+    <li><%= job.title %> at <%=job.company.name %>
+      <p>Interest Level <%=job.level_of_interest %>, Average Interest for this company: ...</p>
+</ul>
+<% end %>
+
 <h3>Count of Jobs by Interest level</h3>
 
-<%@jobs.grouped_by_interest.each do |job|%>
-<ul>
-    <li> <%=job.level_of_interest%> <%job.level_of_interest.each do|ea|%>
-     <p><%= ea.job.title%></p>
-     end
-</ul>
-<%end%>
+<% @jobs.grouped_by_interest.each do |job| %>
+  <ul>
+      <li> Interest Level:<%= job.level_of_interest %></li>
+       <p><%= job.title%></p>
 
-
-
-<h3>Jobs by Interest level</h3>
-
-<%@jobs.top_3_by_interest.each do |job|%>
-<ul>
-    <li><%= job.title %> at <%=job.company.name%>
-      <p>Interest Level <%=job.level_of_interest%>, Average Interest for this company: <%=job.company.average(:level_of_interest) %></p>
-</ul>
-<%end%>
+  </ul>
+<% end %>

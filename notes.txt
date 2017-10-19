@@ -1,10 +1,14 @@
 
 
-count of jobs by level of interest
+count of jobs by level of interest - DONE
 
 
-top 3 companies ranked by level of interest
-  AND each company's averaged level of interest
+top 3 companies ranked by level of interest - DONE
+  AND each company's averaged level of interest - !!!
 
 count of jobs by location
    links to visit jobs in that location. the link should be structured: /jobs?location=Denver for Denver, etc. Hard code th url?
+
+
+
+tests needed:

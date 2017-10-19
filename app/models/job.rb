@@ -9,7 +9,7 @@ class Job < ApplicationRecord
   end
 
   def self.grouped_by_interest
-    group(:level_of_interest).order("level_of_interest DESC")
+    order("level_of_interest DESC")
   end
 
 
